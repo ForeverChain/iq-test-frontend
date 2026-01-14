@@ -8,12 +8,7 @@ RUN npm run build
 
 FROM nginx:alpine
 
-# Railway dynamic port
-ENV PORT=3000
-
 COPY --from=builder /app/dist /usr/share/nginx/html
-
-# ⚠️ ЗӨВ template файл
 COPY default.conf.template /etc/nginx/templates/default.conf.template
 
 EXPOSE 3000
