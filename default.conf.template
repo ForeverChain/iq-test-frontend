@@ -1,6 +1,7 @@
 server {
-    listen ${PORT};
-    listen [::]:${PORT};
+    listen 0.0.0.0:${PORT};
+    # IPv6 зарим Railway region-д асуудал үүсгэдэг
+    # listen [::]:${PORT};
 
     server_name _;
     root /usr/share/nginx/html;
