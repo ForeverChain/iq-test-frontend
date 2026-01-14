@@ -1,6 +1,8 @@
 server {
-    listen 80;
-    server_name localhost;
+    listen ${PORT};
+    listen [::]:${PORT};
+
+    server_name _;
     root /usr/share/nginx/html;
     index index.html;
 
@@ -8,7 +10,7 @@ server {
         try_files $uri $uri/ /index.html;
     }
 
-    # Optional: return sensible headers
+    # Static assets cache
     location ~* \.(?:css|js|jpg|jpeg|gif|png|svg|ico|woff2?)$ {
         expires 7d;
         add_header Cache-Control "public";
